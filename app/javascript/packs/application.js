@@ -15,3 +15,16 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import 'bootstrap';
+
+// Import plugins:
+import { initUpdateNavbarOnScroll } from '../components/navbar'; // navbar
+import { loadDynamicBannerText } from '../components/banner'; // banner
+
+// Init
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  initUpdateNavbarOnScroll(); // navbar
+  loadDynamicBannerText(); // banner
+});

@@ -1,0 +1,24 @@
+<div style="height:60px"></div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+
+      <%# cocktail_doses POST   /cocktails/:cocktail_id/doses %>
+      <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+        <%= f.input :description %>
+        <%= f.association :ingredient, collection: Ingredient.order(:name) - @cocktail.ingredients, prompt: "Choose an Ingredient" %>
+        <%# Remove selected ingredients from the select list by: deducting @cocktail.ingredients %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+
+      <%# cocktails GET  /cocktails %>
+      <%= link_to 'Back', cocktails_path %>
+
+    </div>
+  </div>
+</div>
+
+<%# NOTES: for line 10 %>
+<%#= f.association :ingredient %> <%# can remove collection:..... %>
+<%#= f.association :ingredient, collection: Ingredient.all %> <%# Sort alphbetically: Ingredient.order(:name) %>

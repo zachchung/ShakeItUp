@@ -1,0 +1,38 @@
+<div class="home-banner">
+  <h1><%= @cocktail.name %></h1>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+      <!--  -->
+      <h1><%#= @cocktail.name %></h1>
+
+      <ul class="list-group">
+        <div class="d-flex justify-content-between"> <%# Ingredients & Add dose %>
+          <h4>Ingredients</h4> <%# dose %>
+          <%# new_cocktail_dose GET    /cocktails/:cocktail_id/doses/new %>
+          <%= link_to 'Add an ingredient', new_cocktail_dose_path(@cocktail.id) %> <%# dose %>
+        </div>
+
+        <% @cocktail.doses.each do |dose| %>
+          <li class="list-group-item d-flex justify-content-between"> <%# Content & delete icon %>
+            <%= dose.ingredient.name %> -
+            <%= dose.description %>
+
+            <%# dose DELETE /doses/:id %>
+            <%= link_to dose_path(dose.id), method: :delete, data: { confirm: "Are you sure to delete this ingredient?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+
+      <%= "Test the scrollbar: I love cocktails, I can drink everything you got!" * 100 %>
+    </div>
+  </div>
+</div>
+
+
+
+
