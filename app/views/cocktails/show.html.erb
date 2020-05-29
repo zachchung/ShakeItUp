@@ -1,7 +1,9 @@
 <% if @cocktail.photo.attached? %>
   <div class="home-banner" style="background-image: url(<%= cl_image_path @cocktail.photo.key %>)">
 <% else %>
-  <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/cocktail?random=<%= (1..100).to_a.sample %>')">
+  <div class="home-banner" style="background-image: url('https://source.unsplash.com/?<%= @cocktail.name %>')">
+  <!-- <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/<%#= @cocktail.name %>')"> --> <%# bad image %>
+  <!-- <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/cocktail?random=<%#= (1..100).to_a.sample %>')"> -->
 <% end %>
     <h1><%= @cocktail.name %></h1>
   </div>

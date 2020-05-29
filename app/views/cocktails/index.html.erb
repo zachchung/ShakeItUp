@@ -20,7 +20,9 @@
           <% if cocktail.photo.attached? %>
             <%= cl_image_tag cocktail.photo.key %>
           <% else %>
-            <img src="http://loremflickr.com/200/200/cocktail?random=<%= (1..100).to_a.sample %>" alt="random image">
+            <img src="https://source.unsplash.com/?<%= @cocktail.name %>">
+            <!-- <img src="http://loremflickr.com/200/200/<%#= cocktail.name %>" alt="random image"> --> <%# bad image %>
+            <!-- <img src="http://loremflickr.com/200/200/cocktail?random=<%#= (1..100).to_a.sample %>" alt="random image"> -->
           <% end %>
 
 
