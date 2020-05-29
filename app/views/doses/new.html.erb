@@ -6,7 +6,7 @@
 
       <%# cocktail_doses POST   /cocktails/:cocktail_id/doses %>
       <%= simple_form_for [ @cocktail, @dose ] do |f| %>
-        <%= f.input :description %>
+        <%= f.input :description, label: "Ingredients measurements" %>
         <%= f.association :ingredient, collection: Ingredient.order(:name) - @cocktail.ingredients, prompt: "Choose an Ingredient" %>
         <%# Remove selected ingredients from the select list by: deducting @cocktail.ingredients %>
         <%= f.submit "Submit", class: "btn btn-primary" %>
