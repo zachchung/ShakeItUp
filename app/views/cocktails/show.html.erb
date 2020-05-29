@@ -1,4 +1,6 @@
-<div class="home-banner">
+
+<div class="home-banner" style="background-image: url(<%= cl_image_path @cocktail.photo.key %>)">
+
   <h1><%= @cocktail.name %></h1>
 </div>
 
@@ -33,6 +35,14 @@
   </div>
 </div>
 
+<%# def upload_photo() %>
+  <%#= @cocktail.photo.attached? ? cl_image_path @cocktail.photo.key : "http://loremflickr.com/800/400/cocktail" %>
+<%# end %>
 
-
-
+<%# def upload_photo() %>
+  <%# if @cocktail.photo.attached? %>
+    <%#= cl_image_path @cocktail.photo.key %>
+  <%# else %>
+    <%#= "http://loremflickr.com/800/400/cocktail" %>
+  <%# end %>
+<%# end %>
