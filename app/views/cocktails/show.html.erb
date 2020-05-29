@@ -1,11 +1,11 @@
 <% if @cocktail.photo.attached? %>
   <div class="home-banner" style="background-image: url(<%= cl_image_path @cocktail.photo.key %>)">
 <% else %>
-  <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/cocktail')">
+  <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/cocktail?random=<%= (1..100).to_a.sample %>')">
 <% end %>
+    <h1><%= @cocktail.name %></h1>
+  </div>
 
-  <h1><%= @cocktail.name %></h1>
-</div>
 
 <div class="container">
   <div class="row justify-content-center">
@@ -33,7 +33,7 @@
         <% end %>
       </ul>
 
-      <%= "Test the scrollbar: I love cocktails, I can drink everything you got!" * 100 %>
+      <%#= "Test the scrollbar: I love cocktails, I can drink everything you got!" * 100 %>
     </div>
   </div>
 </div>
