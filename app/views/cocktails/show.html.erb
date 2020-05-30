@@ -1,39 +1,20 @@
-<% if @cocktail.photo.attached? %>
-  <div class="home-banner" style="background-image: url(<%= cl_image_path @cocktail.photo.key %>)">
+<!-- Banner: -->
+<% if @cocktail.photos.attached? %>
+  <div class="home-banner" style="background-image: url(<%= cl_image_path @cocktail.photos.last.key %>)">
 <% else %>
-  <div class="home-banner" style="background-image: url('https://source.unsplash.com/featured/?<%= @cocktail.name %>')">
-  <!-- <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/<%#= @cocktail.name %>')"> --> <%# bad image %>
+  <div class="home-banner" style="background-image: url('https://source.unsplash.com/featured/?cocktail <%= @cocktail.name %>')">
   <!-- <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/cocktail?random=<%#= (1..100).to_a.sample %>')"> -->
+  <!-- <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/<%#= @cocktail.name %>')"> --> <%# bad image %>
 <% end %>
     <h1><%= @cocktail.name %></h1>
   </div>
 
-
+<!-- Ingredients: -->
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-8">
-      <!--  -->
-      <h1><%#= @cocktail.name %></h1>
 
-      <ul class="list-group">
-        <div class="d-flex justify-content-between"> <%# Ingredients & Add dose %>
-          <h4>Ingredients</h4> <%# dose %>
-          <%# new_cocktail_dose GET    /cocktails/:cocktail_id/doses/new %>
-          <%= link_to 'Add an ingredient', new_cocktail_dose_path(@cocktail.id) %> <%# dose %>
-        </div>
-
-        <% @cocktail.doses.each do |dose| %>
-          <li class="list-group-item d-flex justify-content-between"> <%# Content & delete icon %>
-            <%= dose.ingredient.name %> -
-            <%= dose.description %>
-
-            <%# dose DELETE /doses/:id %>
-            <%= link_to dose_path(dose.id), method: :delete, data: { confirm: "Are you sure to delete this ingredient?" } do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+      <%= render "cocktails/ingredient", cocktail: @cocktail %> <%# pass cocktail to card!!!! %>
 
       <%#= "Test the scrollbar: I love cocktails, I can drink everything you got!" * 100 %>
     </div>

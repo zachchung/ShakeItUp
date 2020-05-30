@@ -5,42 +5,11 @@
     <div class="col-12 col-lg-8">
 
       <h1>Cocktail List</h1>
-
-      <%# @cocktails.each do |cocktail| %>
-        <!-- <div class="card p-3 mb-2"> -->
-          <h4><%#= link_to cocktail.name, cocktail_path(cocktail) %></h4>
-
-        <!-- </div> -->
-      <%# end %>
-
-
         <% @cocktails.each do |cocktail| %>
-          <div class="card-product">
-
-          <% if cocktail.photo.attached? %>
-            <%= cl_image_tag cocktail.photo.key %>
-          <% else %>
-            <img src="https://source.unsplash.com/featured/?cocktail <%= cocktail.name %>">
-            <!-- <img src="http://loremflickr.com/200/200/<%#= cocktail.name %>" alt="random image"> --> <%# bad image %>
-            <!-- <img src="http://loremflickr.com/200/200/cocktail?random=<%#= (1..100).to_a.sample %>" alt="random image"> -->
-          <% end %>
-
-
-          <div class="card-product-infos">
-            <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-
-            <p> Ingredients:
-            <% cocktail.doses.each do |dose| %>
-            <%= dose.ingredient.name %>
-            <% end %>
-            </p>
-
-          </div>
-        </div>
+          <%= render "cocktails/card", cocktail: cocktail %> <%# pass cocktail to card!!!! %>
         <% end %>
 
-
-      <%#= cl_image_tag "erusuuww1yqkhdcipwav", width: 400, height: 300, crop: :fill %>
+      <%#= cl_image_tag "erusuuww1yqkhdcipwav", width: 400, height: 300, crop: :fill %> <%# Test only %>
       <%#= "Test the scrollbar: I love cocktails, I can drink everything you got!" * 100 %>
     </div>
   </div>

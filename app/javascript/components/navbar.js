@@ -1,3 +1,4 @@
+// From lecture notes:
 const initUpdateNavbarOnScroll = () => {
   const navbar = document.querySelector('.navbar-lewagon');
   if (navbar) {
