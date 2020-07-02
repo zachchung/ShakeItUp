@@ -1,15 +1,16 @@
-<!-- Banner: -->
+<%# Banner: %>
+<%# if user upload photo, use it. If not, use a random pic from unsplash.com %>
 <% if @cocktail.photos.attached? %>
   <div class="home-banner" style="background-image: url(<%= cl_image_path @cocktail.photos.last.key %>)">
 <% else %>
   <div class="home-banner" style="background-image: url('https://source.unsplash.com/featured/?cocktail <%= @cocktail.name %>')">
-  <!-- <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/cocktail?random=<%#= (1..100).to_a.sample %>')"> -->
+  <!-- <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/cocktail?random=<%#= (1..100).to_a.sample %>')"> --> <%# good %>
   <!-- <div class="home-banner" style="background-image: url('http://loremflickr.com/800/400/<%#= @cocktail.name %>')"> --> <%# bad image %>
 <% end %>
     <h1><%= @cocktail.name %></h1>
   </div>
 
-<!-- Ingredients: -->
+<%# Ingredients: %>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-8">
@@ -20,15 +21,3 @@
     </div>
   </div>
 </div>
-
-<%# def upload_photo() %>
-  <%#= @cocktail.photo.attached? ? cl_image_path @cocktail.photo.key : "http://loremflickr.com/800/400/cocktail" %>
-<%# end %>
-
-<%# def upload_photo() %>
-  <%# if @cocktail.photo.attached? %>
-    <%#= cl_image_path @cocktail.photo.key %>
-  <%# else %>
-    <%#= "http://loremflickr.com/800/400/cocktail" %>
-  <%# end %>
-<%# end %>
