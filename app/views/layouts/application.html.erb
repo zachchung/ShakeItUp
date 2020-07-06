@@ -6,12 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# enable Bootstrap responsiveness %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+    <%= favicon_link_tag asset_path('cocktail.png') %>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <%# enable Bootstrap responsiveness %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
+    <!-- ShareThis -->
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f02f52c81808f0012503133&product=sticky-share-buttons&cms=sop' async='async'></script>
+    <!-- <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5f02f46182708800123b4158&product=sticky-share-buttons"></script> -->
   </head>
 
   <body>
