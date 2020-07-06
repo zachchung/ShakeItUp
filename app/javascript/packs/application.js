@@ -27,4 +27,12 @@ document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll(); // navbar
   loadDynamicBannerText(); // banner
+
+  // // Use an external JS library (can replace script tag in app.html)
+  // var e = document.createElement("script");
+  // e.src = 'https://platform-api.sharethis.com/js/sharethis.js#property=5f02f52c81808f0012503133&product=sticky-share-buttons&cms=sop';
+  // e.type="text/javascript";
+  // document.head.appendChild(e);
 });
+
+
